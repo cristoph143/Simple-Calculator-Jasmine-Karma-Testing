@@ -1,12 +1,12 @@
 <div class="container mx-auto" style="width: 300px">
     <div class="row mt-4 text-center">
         <div class="col">
-            <label for="">First Number</label>
-            <input class="text-center" (input)="getNumber(firstNumber.value, 0)" type="number" #firstNumber />
+            <label for="firstNumber">First Number</label>
+            <input class="text-center" (input)="getNumber(firstNumber.value, 0)" id="firstNumber" type="number" #firstNumber />
         </div>
         <div class="col mt-2">
-            <label for="">Second Number</label>
-            <input class="text-center" (input)="getNumber(secondNumber.value, 1)" type="number" #secondNumber />
+            <label for="secondNumber">Second Number</label>
+            <input class="text-center" (input)="getNumber(secondNumber.value, 1)" id="secondNumber" type="number" #secondNumber />
         </div>
     </div>
     <hr />
@@ -16,18 +16,18 @@
             <button (click)="add()" class="btn btn-primary" id="add">+</button>
         </div>
         <div class="col">
-            <button (click)="subtract()" class="btn btn-primary" id="sub">-</button>
+            <button (click)="subtract()" class="btn btn-primary" id="subtract">-</button>
         </div>
         <div class="col">
-            <button (click)="multiply()" class="btn btn-primary" id="mul">*</button>
+            <button (click)="multiply()" class="btn btn-primary" id="multiply">*</button>
         </div>
         <div class="col">
-            <button (click)="divide()" class="btn btn-primary" id="div">/</button>
+            <button (click)="divide()" class="btn btn-primary" id="divide">/</button>
         </div>
     </div>
 
     <hr />
     <div *ngIf="firstNumber || secondNumber" class="text-center">
-        <label for="" [textContent]="result"></label>
+        <label for="result" [textContent]="result"></label>
     </div>
 </div>
