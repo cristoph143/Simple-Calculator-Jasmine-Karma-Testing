@@ -21,6 +21,14 @@
       }
     },
     {
+      "label": "Start Live Unit Tests",
+      "type": "npm",
+      "script": "test",
+      "group": "test",
+      "isBackground": true,
+      "problemMatcher": "$karma-jasmine2"
+    },
+    {
       "type": "npm",
       "script": "test",
       "isBackground": true,
