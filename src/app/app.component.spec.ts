@@ -32,33 +32,38 @@ describe('Calculator App Testing', () => {
   });
 
   describe('GetNumber Function' , () => {
-    it('should set the first number', () => {
+    it('should change the value of the first number', () => {
       component.getNumber('1', 0);
-      expect(component.firstNumber).toBe(1);
+      fixture.detectChanges();
+      expect(component.firstNumber).toEqual(1);
     });
-    it('should set the second number', () => {
+    it('should change the value of the second number', () => {
       component.getNumber('1', 1);
-      expect(component.secondNumber).toBe(1);
+      fixture.detectChanges();
+      expect(component.secondNumber).toEqual(1);
     });
-  
     it('should check if getNumber function is called', () => {
       spyOn(component, 'getNumber');
       component.getNumber('2', 0);
+      fixture.detectChanges();
       expect(component.getNumber).toHaveBeenCalled();
     });  
 
     it('should check if which is 0', () => {
       component.getNumber('3', 0);
+      fixture.detectChanges();
       expect(component.firstNumber).toBe(3);
     });
 
     it('should check if which is 1', () => {
       component.getNumber('4', 1);
+      fixture.detectChanges();
       expect(component.secondNumber).toBe(4);
     });
   });
 
   it('should check if ngif is working', () => {
+    fixture.detectChanges();
     expect(component.result).toBeUndefined();
   });
 
@@ -67,10 +72,12 @@ describe('Calculator App Testing', () => {
       expect(component.result).toBeUndefined();
       const button = fixture.debugElement.query(By.css('#add'));
       button.triggerEventHandler('click', null);
+      fixture.detectChanges();
       expect(component.result).toBeNaN();
 
       spyOn(component, 'add');
       component.add();
+      fixture.detectChanges();
       expect(component.add).toHaveBeenCalled();
     });
 
@@ -78,10 +85,12 @@ describe('Calculator App Testing', () => {
       expect(component.result).toBeUndefined();
       const button = fixture.debugElement.query(By.css('#subtract'));
       button.triggerEventHandler('click', null);
+      fixture.detectChanges();
       expect(component.result).toBeNaN();
 
       spyOn(component, 'subtract');
       component.subtract();
+      fixture.detectChanges();
       expect(component.subtract).toHaveBeenCalled();
     });
 
@@ -89,10 +98,12 @@ describe('Calculator App Testing', () => {
       expect(component.result).toBeUndefined();
       const button = fixture.debugElement.query(By.css('#multiply'));
       button.triggerEventHandler('click', null);
+      fixture.detectChanges();
       expect(component.result).toBeNaN();
 
       spyOn(component, 'multiply');
       component.multiply();
+      fixture.detectChanges();
       expect(component.multiply).toHaveBeenCalled();
     });
 
@@ -100,10 +111,12 @@ describe('Calculator App Testing', () => {
       expect(component.result).toBeUndefined();
       const button = fixture.debugElement.query(By.css('#divide'));
       button.triggerEventHandler('click', null);
+      fixture.detectChanges();
       expect(component.result).toBeNaN();
 
       spyOn(component, 'divide');
       component.divide();
+      fixture.detectChanges();
       expect(component.divide).toHaveBeenCalled();
     });
   });
@@ -113,6 +126,7 @@ describe('Calculator App Testing', () => {
       component.getNumber('2', 0);
       component.getNumber('3', 1);
       component.add();
+      fixture.detectChanges();
       expect(component.result).toEqual(5);
     });
 
@@ -120,6 +134,7 @@ describe('Calculator App Testing', () => {
       component.getNumber('2', 0);
       component.getNumber('3', 1);
       component.subtract();
+      fixture.detectChanges();
       expect(component.result).toEqual(-1);
     });
 
@@ -127,6 +142,7 @@ describe('Calculator App Testing', () => {
       component.getNumber('2', 0);
       component.getNumber('3', 1);
       component.multiply();
+      fixture.detectChanges();
       expect(component.result).toEqual(6);
     });
 
@@ -134,6 +150,7 @@ describe('Calculator App Testing', () => {
       component.getNumber('2', 0);
       component.getNumber('3', 1);
       component.divide();
+      fixture.detectChanges();
       expect(component.result).toEqual(0.6666666666666666);
     });
   });
